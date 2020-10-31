@@ -1,1 +1,32 @@
-site_name: My Docs
+# Docs information
+site_name: Streamlit Book
+site_url: ''
+site_description: >-
+    Detailed usage of the streamlit python package
+site_author: Surendra Reddy(surendraelectronics@gmail.com)
+use_directory_urls: false
+
+
+# Repsitory details
+
+theme:
+    name: material
+    custom_dir: book/
+    language: en
+    features: 
+        - navigation.tabs
+    palette:
+        scheme: default
+        primary: indigo 
+        accent: indigo
+    font:
+        text: Roboto
+        code: Roboto Mono
+
+
+nav:
+    - Home: index.md
+    - Introduction: introduction.md
+    - Concepts: concepts.md
+    - References: references.md 
+           

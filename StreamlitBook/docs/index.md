@@ -1,17 +1,15 @@
-# Welcome to MkDocs
+# <center>![](images/book.png) ** Welcome to Streamlit Book ** </center>
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+---
 
-## Commands
+This book contains the details of the python package called streamlit and its concepts, Visit [streamlit](https://www.streamlit.io/) for more details.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+### ** Introduction **
+- What is streamlit?
+- How to install?
 
-## Project layout
+### ** Concepts **
+- Title, input, text input, image, video, sidebar, latex ..etc
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+### ** References **
+- [docs](https://docs.streamlit.io/en/stable/)
