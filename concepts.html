@@ -1,0 +1,815 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Detailed usage of the streamlit python package">
+      
+      
+      
+        <meta name="author" content="Surendra Reddy(surendraelectronics@gmail.com)">
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
+    
+    
+      
+        <title>Concepts - Streamlit Book</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.bc7e593a.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab28b872.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#concepts" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+  
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="./index.html" title="Streamlit Book" class="md-header-nav__button md-logo" aria-label="Streamlit Book">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Streamlit Book
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Concepts
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="index.html" class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./index.html" title="Streamlit Book" class="md-nav__button md-logo" aria-label="Streamlit Book">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Streamlit Book
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="index.html" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="introduction.html" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Concepts
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="concepts.html" class="md-nav__link md-nav__link--active">
+      Concepts
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    Import
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#display" class="md-nav__link">
+    Display
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#media" class="md-nav__link">
+    Media
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#charts" class="md-nav__link">
+    Charts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#widgets" class="md-nav__link">
+    Widgets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sidebar" class="md-nav__link">
+    Sidebar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-flow" class="md-nav__link">
+    Control Flow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progress-bar" class="md-nav__link">
+    Progress Bar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-messages-others" class="md-nav__link">
+    Status Messages &amp; Others
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache-or-optimize" class="md-nav__link">
+    Cache or Optimize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#magic-command" class="md-nav__link">
+    Magic Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="examples.html" class="md-nav__link">
+      Examples
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="references.html" class="md-nav__link">
+      References
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    Import
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#display" class="md-nav__link">
+    Display
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#media" class="md-nav__link">
+    Media
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#charts" class="md-nav__link">
+    Charts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#widgets" class="md-nav__link">
+    Widgets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sidebar" class="md-nav__link">
+    Sidebar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-flow" class="md-nav__link">
+    Control Flow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progress-bar" class="md-nav__link">
+    Progress Bar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-messages-others" class="md-nav__link">
+    Status Messages &amp; Others
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache-or-optimize" class="md-nav__link">
+    Cache or Optimize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#magic-command" class="md-nav__link">
+    Magic Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="concepts"><center><img alt="" src="images/concept.jpg" /><strong> Concepts </strong></center></h1>
+<hr />
+<h4 id="import"><strong> Import </strong></h4>
+<pre><code>import streamlit as st
+</code></pre>
+<h4 id="display"><strong> Display </strong></h4>
+<ul>
+<li>
+<p><strong>Text/Title</strong></p>
+<pre><code>import streamlit as st
+st.title("Welcome to streamlit")
+st.text('Happy Learning!')
+</code></pre>
+</li>
+<li>
+<p><strong>Header/Subheader</strong></p>
+<pre><code>import streamlit as st
+st.header('Header')
+st.subheader('Subheader')
+</code></pre>
+</li>
+<li>
+<p><strong>Markdown</strong></p>
+<pre><code>import streamlit as st
+
+# Basic markdown
+st.markdown('Header')
+
+# Advanced
+html_temp = """
+&lt;div style="background-color:tomato;padding:10px"&gt;
+&lt;h2 style="color:white;text-align:center;"&gt;Markdown html Example &lt;/h2&gt;
+&lt;/div&gt;
+"""
+st.markdown(html_temp,unsafe_allow_html=True)
+st.markdown('&lt;i class="material-icons"&gt;{}&lt;/i&gt;'.format("people"), unsafe_allow_html=True)
+
+# Load stylesheet
+with open(style.css) as f:
+    st.markdown('&lt;style&gt;{}&lt;/style&gt;'.format(f.read()), unsafe_allow_html=True)
+</code></pre>
+</li>
+<li>
+<p><strong>Latex</strong></p>
+<pre><code>import streamlit as st
+st.latex(r''' e^{i\pi} + 1 = 0 ''')
+st.latex(r'''
+        ... a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
+        ... \sum_{k=0}^{n-1} ar^k =
+        ... a \left(\frac{1-r^{n}}{1-r}\right)
+        ... ''')
+</code></pre>
+</li>
+<li>
+<p><strong>Write</strong></p>
+<pre><code>import streamlit as st
+st.write('Example text')
+st.write(['st', 'is &lt;', 3])
+st.write("✔️ Time up!")
+</code></pre>
+</li>
+<li>
+<p><strong>Code</strong></p>
+<pre><code>import streamlit as st
+st.code('s="Happy Learning!" for i in range(0,10): print(s)')
+
+st.echo()
+with st.echo():
+    text = 's="Happy Learning!" for i in range(0,10): print(s)'
+    st.write(text)
+</code></pre>
+</li>
+<li>
+<p><strong>Help</strong></p>
+<pre><code>import streamlit as st
+st.help(range)
+</code></pre>
+</li>
+</ul>
+<h4 id="data"><strong> Data </strong></h4>
+<pre><code>    import streamlit as st
+    import pandas as pd
+    import numpy as np
+
+    df1 = pd.DataFrame(
+    np.random.randn(50, 5),
+    columns=('col %d' % i for i in range(5)))
+    my_table = st.table(df1)
+
+    st.write('Dataframe example')
+    st.dataframe(df1)
+
+    data = {'1':"True",'2':"True",'3':"False"}
+    st.json(data)
+</code></pre>
+<h4 id="media"><strong> Media </strong></h4>
+<pre><code>    import streamlit as st
+    from PIL import Image
+    import urllib.request
+
+    # Basic image
+    st.image('./image.png')
+
+    img = Image.open("download.jfif") #open the image stored in specified location
+
+    #Opens the image from the url
+    img = Image.open(urllib.request.urlopen("https://mms.businesswire.com/media/20200616005364/en/798639/22/Streamlit_Logo_%281%29.jpg"))
+
+    st.image(img, width=300, caption="Simple Image")
+
+
+    # Video playing
+    vid_file = open("videofile.mp4","rb").read() #play the video stored in specified location
+    st.video(vid_file)
+
+    #Audio
+    audio_file = open('myaudio.ogg', 'rb')
+    audio_bytes = audio_file.read()
+    st.audio(audio_bytes, format='audio/ogg')
+</code></pre>
+<h4 id="charts"><strong> Charts </strong></h4>
+<pre><code>    import streamlit as st
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    st.line_chart({"data": [1, 5, 2, 6, 2, 1]})
+    st.area_chart({"data": [1, 5, 2, 6, 2, 1]})
+    st.bar_chart({"data": [1, 5, 2, 6, 2, 1]})
+
+    arr = np.random.normal(1, 1, size=100)
+    fig, ax = plt.subplots()
+    ax.hist(arr, bins=20)
+    st.pyplot(fig)
+
+    st.altair_chart(data)
+    st.vega_lite_chart(data)
+    st.plotly_chart(data)
+    st.bokeh_chart(data)
+    st.pydeck_chart(data)
+    st.deck_gl_chart(data)
+    st.graphviz_chart(data)
+    st.map(data)
+</code></pre>
+<h4 id="widgets"><strong> Widgets </strong></h4>
+<pre><code>    import streamlit as st
+
+    st.button('Click')
+    st.checkbox('Check the checkbox')
+    st.radio('Radio Button',[1,2,3])
+    st.selectbox('Select', [1,2,3])
+    st.multiselect('Multiselect', [1,2,3])
+    st.slider('slide',min_value=0, max_value=10)
+    st.text_input('Enter Username')
+    st.number_input('Enter a Number')
+    st.text_area('Enter Text Here!')
+    st.date_input('Date Input')
+    st.time_input('Time entry')
+    st.file_uploader('File Uploader')
+    st.beta_color_picker('Select color')
+</code></pre>
+<h4 id="sidebar"><strong> Sidebar </strong></h4>
+<pre><code>    import streamlit as st
+    st.sidebar.&lt;widget&gt;
+    &lt;widget&gt; : button, checkbox, radio, selectbox, multiselect, slider, text_input, number_input, text_area, date_input, time_input
+</code></pre>
+<h4 id="control-flow"><strong> Control Flow </strong></h4>
+<pre><code>    import streamlit as st
+    st.stop()
+</code></pre>
+<h4 id="progress-bar"><strong> Progress Bar </strong></h4>
+<pre><code>    import streamlit as st
+    import time
+
+    # Sample Progress bar
+    my_bar = st.progress(0)
+
+    for percent_complete in range(100):
+        time.sleep(0.1)
+        my_bar.progress(percent_complete + 1)
+
+    with st.spinner('Wait for it...'):
+        time.sleep(5)
+    st.write('Done!')
+</code></pre>
+<h4 id="status-messages-others"><strong> Status Messages &amp; Others</strong></h4>
+<pre><code>    import streamlit as st
+
+    st.error('Error Message')
+    st.warning('Warning Message')
+    st.info('Info Message')
+    st.success('Success Message')
+    st.exception("IndexError('list out of index')")
+    st.balloons()
+
+    st.empty()
+    place_holder = st.empty()
+    place_holder.text('Replaced!)
+
+    st.get_option(key)
+    st.set_option(key)
+
+    st.beta_set_page_config(layout='wide')
+</code></pre>
+<h4 id="cache-or-optimize"><strong> Cache or Optimize</strong></h4>
+<pre><code>    import streamlit as st
+
+    @st.cache
+    func()
+</code></pre>
+<h4 id="magic-command"><strong> Magic Command</strong></h4>
+<pre><code>    import streamlit as st
+
+    '''
+    # Markdown magic
+
+    This is some _**text**_.
+    '''
+
+    df = pd.DataFrame({'col1': [40,54,67]})
+    df  # &lt;-- df values
+
+    x = 100
+    'x', x  # &lt;-- 'x' and its value
+</code></pre>
+<h3 id="references"><strong> References </strong></h3>
+<ul>
+<li><a href="https://docs.streamlit.io/en/stable/api.html">docs/API</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="introduction.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Introduction
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="examples.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Examples
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: ".",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
