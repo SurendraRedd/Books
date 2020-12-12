@@ -17,7 +17,7 @@
     
     
       
-        <title>Examples - Streamlit Digital Book</title>
+        <title>BestPractises - Streamlit Digital Book</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#example-snippets" class="md-skip">
+        <a href="#bestpractises" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Examples
+              BestPractises
             
           </span>
         </div>
@@ -305,49 +305,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Examples
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="examples.html" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="examples.html" class="md-nav__link">
       Examples
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#codes" class="md-nav__link">
-    Codes
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -367,11 +329,49 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="bestpractices.html" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        BestPractises
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="bestpractices.html" class="md-nav__link md-nav__link--active">
       BestPractises
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tipsbestpractises" class="md-nav__link">
+    Tips/Bestpractises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -442,8 +442,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#codes" class="md-nav__link">
-    Codes
+  <a href="#tipsbestpractises" class="md-nav__link">
+    Tips/Bestpractises
   </a>
   
 </li>
@@ -460,213 +460,61 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/SurendraRedd/Books/edit/master/docs/examples.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/SurendraRedd/Books/edit/master/docs/bestpractices.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="example-snippets"><center><img alt="" src="images/Code.png" /><strong> Example Snippets </strong></center><a class="headerlink" href="#example-snippets" title="Permanent link">&para;</a></h1>
+                <h1 id="bestpractises"><center><img alt="" src="images/bestpractises.png" /><strong> BestPractises </strong></center><a class="headerlink" href="#bestpractises" title="Permanent link">&para;</a></h1>
 <hr />
-<h4 id="codes"><strong> Codes </strong><a class="headerlink" href="#codes" title="Permanent link">&para;</a></h4>
+<p>Here are the <strong>Tips</strong> or <strong>BestPractises</strong> which can be used during 
+streamlit code development.</p>
+<h4 id="tipsbestpractises"><strong> Tips/Bestpractises </strong><a class="headerlink" href="#tipsbestpractises" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
-<p><strong>Example- Usage of Slider, SelectBox &amp; Miltiselect</strong></p>
-<pre><code>import streamlit as st
-import numpy as np
-
-x = st.slider('Select a value')
-st.write(x, 'squared value is', x * x)
-
-Exp = streamlit.selectbox("Choose your Experience: ", np.arange(1, 40, 1))
-
-lan = st.multiselect("Which is your favorite language?", 
-                 ["Python", "JavaScript",
-                 "Java", "C", "Julia"])
-</code></pre>
+<p><strong> Clear Cache </strong> 🎷  <br />
+    from streamlit import caching
+    caching.clear_cache()</p>
 </li>
 <li>
-<p><strong>Example- Usage of dataframe</strong></p>
-<pre><code>import pandas as pd
-import streamlit as st
-
-@st.cache
-def load_data():
-    df = pd.read_csv("data.csv") # csv
-    #df = pd.read_excel("data.excel") #excel
-    return df
-
-# Will only run once if already cached
-df = load_data()
-</code></pre>
-</li>
-<li>
-<p><strong>Example- Jupyter Notebook</strong></p>
-<pre><code># Run jupyter notebook in streamlit using 3 steps below
-- jupyter nbconvert --to script scriptname.ipynb
-- awk '!/ipython/' scriptname.py &gt; [temp.py](http://temp.py/) &amp;&amp; mv [temp.py](http://temp.py/) [app.py](http://app.py/) &amp;&amp; rm scriptname.py
-- streamlit run [app.py](http://app.py/)
-Refer the blog more details https://learnups2020.wordpress.com/2020/11/07/streamlit-code-running-from-jupyter-notebook/
-</code></pre>
-</li>
-<li>
-<p><strong>Example- Altair Chart</strong></p>
-<pre><code># Alt Chart example
-import pandas as pd
-import numpy as np
-import altair as alt
-import streamlit as st
-
-df = pd.DataFrame(np.random.randn(100, 3), columns=['a', 'b', 'c'])
-c = alt.Chart(df).mark_circle().encode(x='a', y='b', size='c',  
-                                color='c')
-st.altair_chart(c, width=-1)
-</code></pre>
-</li>
-<li>
-<p><strong>Example- Simple Calculator App using sqlite DB</strong></p>
-<pre><code># Simple Calculator
-import pandas as pd
-from pathlib import Path
-import sqlite3
-from sqlite3 import Connection
-import streamlit as st
-
-URI_SQLITE_DB = "test.db"
-
-def main():
-st.title("Simple Calculator")
-st.markdown("Select two inputs from sidebar.")
-
-conn = get_connection(URI_SQLITE_DB)
-init_db(conn)
-
-build_sidebar(conn)
-display_data(conn)
-run_calculator(conn)
-
-def init_db(conn: Connection):
-        conn.execute(
-                """CREATE TABLE IF NOT EXISTS test
-                (
-                        INPUT1 INT,
-                        INPUT2 INT
-                );"""
-        )
-        conn.commit()
-
-def build_sidebar(conn: Connection):
-        st.sidebar.header("Inputs")
-        input1 = st.sidebar.slider("value-1", 0, 100)
-        input2 = st.sidebar.slider("value-2", 0, 100)
-        if st.sidebar.button("Save to database"):
-                conn.execute(f"INSERT INTO test (INPUT1, INPUT2) VALUES ({input1}, {input2})")
-                conn.commit()
-
-def display_data(conn: Connection):
-        if st.checkbox("Display data from the database"):
-                st.dataframe(get_data(conn))
-
-def run_calculator(conn: Connection):
-        if st.button("Calculate Sum"):
-                st.info("Sum of two inputs function is called.")
-                df = get_data(conn)
-                st.write(df.sum())
-
-def get_data(conn: Connection):
-        df = pd.read_sql("SELECT * FROM test", con=conn)
-        return df
-
-@st.cache(hash_funcs={Connection: id})
-def get_connection(path: str):
-        """Put the connection in cache to reuse if path does not change between Streamlit reruns.
-        NB : https://stackoverflow.com/questions/48218065/programmingerror-sqlite-objects-created-in-a-thread-can-only-be-used-in-that-sa
-        """
-        return sqlite3.connect(path, check_same_thread=False)
-
-if __name__ == "__main__":
-        main()
-</code></pre>
-</li>
-<li>
-<p><strong>Example- ProgressBar in sidebar and generate chart</strong></p>
-<pre><code>import streamlit as st 
-import time 
-import numpy as np
-
-progress_bar = st.sidebar.progress(0)
-status_text = st.sidebar.empty()
-last_rows = np.random.randn(1, 1)
-chart = st.line_chart(last_rows)
-
-for i in range(1, 101):
-new_rows = last_rows[-1, :] + np.random.randn(5, 1).cumsum(axis=0)
-status_text.text("%i%% Complete" % i)
-chart.add_rows(new_rows)
-progress_bar.progress(i)
-last_rows = new_rows
-time.sleep(0.05)
-
-progress_bar.empty()
-
-st.button("Re-run")
-</code></pre>
-</li>
-<li>
-<p><strong>Example- Streamlit Components Example</strong></p>
-<pre><code>import streamlit as st
-
-st.sidebar.subheader("Component 1")
-
-t1 = st.sidebar.text_input("Component 1 name")
-s1 = st.sidebar.slider("Component 1 value")
-
-st.sidebar.markdown("---")
-
-st.sidebar.subheader("Component 2")
-t2 = st.sidebar.text_input("Component 2 name")
-s2 = st.sidebar.slider("Component 2")
-
-st.title("Hello!")
-
-st.write(t1, s1)
-st.write(t2, s2)
-
-template = """
-&lt;div class="markdown-text-container stText" style="width: 698px;"&gt;
-&lt;div style="font-size: small;"&gt;This is paragraph 1 text.&lt;/div&gt;
-&lt;p&gt;This is paragraph 2 text.&lt;/p&gt;
-&lt;p&gt;This is paragraph 3 text.&lt;/p&gt;
-&lt;/div&gt;
-"""
-</code></pre>
-</li>
-<li>
-<p><strong>Example- Streamlit Code Share Example</strong></p>
-<pre><code>Prerequisites
-- pip install streamlit-embedcode
-import streamlit as st
-from streamlit_embedcode import github_gist, gitlab_snippet, pastebin_snippet, codepen_snippet, ideone_snippet, tagmycode_snippet
-
-st.title("Github Gist Snippet")
-github_gist("https://gist.github.com/SurendraRedd/feaa6f29961501fa9fce7a45abc14651")
-
-st.title("Gitlab Snippet")
-gitlab_snippet("https://gitlab.com/snippets/2037642", height=400)
-
-st.title("Pastebin Snippet")
-pastebin_snippet("https://pastebin.com/Ryr8q1kq", width = 600, scrolling = False)
-
-st.title("Code Pen Snippet")
-codepen_snippet("https://codepen.io/surendra1985/pen/wvGREBb", width = 600, scrolling = False)
-
-st.title("Ideone Snippet")
-ideone_snippet("https://ideone.com/tXCake")
-
-st.title("Tagmycode Snippet")
-tagmycode_snippet("https://tagmycode.com/snippet/14517/streamlit-basic-concepts#.X6fD8WgzZPY")
-</code></pre>
+<p><strong> Re-run Application </strong> 🎷  <br />
+    from streamlit.ScriptRunner import RerunException
+    raise RerunException </p>
 </li>
 </ul>
+<!-- ??? info inline end
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+The HTML specification is maintained by the W3C.
+*[HTML]: Hyper Text Markup Language
+*[W3C]: World Wide Web Consortium
+
+[Submit :fontawesome-solid-paper-plane:](#){: .md-button .md-button--primary }
+
+=== "C"
+
+    <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello world!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+=== "C++"
+
+    <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello world!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+[^1]: Lorem ipsum dolor sit amet, consectetur adipiscing elit.     -->
                 
               
               
@@ -685,7 +533,7 @@ tagmycode_snippet("https://tagmycode.com/snippet/14517/streamlit-basic-concepts#
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="concepts.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="mlapps.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -694,19 +542,19 @@ tagmycode_snippet("https://tagmycode.com/snippet/14517/streamlit-basic-concepts#
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Concepts
+                MLApps
               </div>
             </div>
           </a>
         
         
-          <a href="mlapps.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="references.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                MLApps
+                Links
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
