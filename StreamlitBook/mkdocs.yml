@@ -1,32 +1,95 @@
 # Docs information
-site_name: Streamlit Book
+site_name: Streamlit Digital Book
 site_url: ''
 site_description: >-
-    Detailed usage of the streamlit python package
+      This Book contains the details of python package called streamlit and its usage
 site_author: Surendra Reddy(surendraelectronics@gmail.com)
 use_directory_urls: false
+repo_name: SurendraRedd/Books
+repo_url: https://github.com/SurendraRedd/Books
 
+plugins:
+    - search:
+            lang: en
+
+extra_css:
+    - stylesheets/extra.css
+    - css\version-select.css
+    
+extra:
+      version:
+            method: mike
+      social:
+        - icon: material/gitlab
+          link: https://gitlab.com/surendraelectronics
+        - icon: material/github
+          link: https://github.com/SurendraRedd
+        - icon: material/home
+          link: https://learnups2020.wordpress.com/
+        - icon: material/email
+          link: NA         
 
 # Repsitory details
-
 theme:
-    name: material
-    custom_dir: book/
-    language: en
-    features: 
-        - navigation.tabs
-    palette:
-        scheme: default
-        primary: indigo 
-        accent: indigo
-    font:
-        text: Roboto
-        code: Roboto Mono
+      name: material
+      custom_dir: book/
+      language: en
+      features:
+          - navigation.tabs
+          - search.highlight
+      palette:
+            scheme: default
+            primary: indigo
+            accent: indigo
+      font:
+            text: Roboto
+            code: Roboto Mono
+      icon:
+            repo: fontawesome/brands/github
 
 
 nav:
     - Home: index.md
-    - Introduction: introduction.md
-    - Concepts: concepts.md
-    - References: references.md 
-           
+    - Getting started:
+          - Details: introduction.md
+          - Concepts: concepts.md
+          - Examples: examples.md
+          - MLApps: mlapps.md
+          - BestPractises: bestpractices.md
+    - References:
+          - Links: references.md
+
+markdown_extensions:
+    - admonition
+    - abbr
+    - attr_list
+    - def_list
+    - footnotes
+    - meta
+    - toc:
+        permalink: true
+    - pymdownx.details
+    - pymdownx.tabbed
+    - pymdownx.superfences
+    - abbr
+    - pymdownx.snippets
+    - attr_list
+    - footnotes
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+    - markdown_blockdiag:
+        format: svg
+    - markdown_include.include
+    - pymdownx.smartsymbols
+    - pymdownx.tasklist:
+          custom_checkbox: true
+
+
+extra_javascript:
+    - js\version-select.js
+
+# Google Analytics
+google_analytics:
+  - !!python/object/apply:os.getenv ["GOOGLE_ANALYTICS_KEY"]
+  - auto    
