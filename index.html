@@ -625,6 +625,21 @@
           }, typeof search !== "undefined" && search)
         })        
       </script>
-      <script src="js/version-select.js"></script>      
+      <script src="js/version-select.js"></script> 
+      <script> 
+      var jv_comments_config = {
+      website_id: 403,
+      is_open: 'true',
+      position: 'right' };
+
+        (function () {
+          var d = document, s = d.createElement("script");
+          s.src = "https://widget.jointcomments.com/e/embed.prod.js";
+          if (/MSIE|Trident/.test(window.navigator.userAgent)) {
+              s.src = "https://widget.jointcomments.com/e/embed.prodIE.js";
+          }
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
   </body>
 </html>
