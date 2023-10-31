@@ -52,8 +52,7 @@ def run_calculator(conn: Connection):
 
 
 def get_data(conn: Connection):
-    df = pd.read_sql("SELECT * FROM test", con=conn)
-    return df
+    return pd.read_sql("SELECT * FROM test", con=conn)
 
 
 @st.cache(hash_funcs={Connection: id})
